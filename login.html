@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full Screen Background */
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+    color: #fff;
+    overflow: hidden;
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+/* Animated Gradient Background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Main Background with Blur */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+/* Login Container */
+.login-container {
+    margin-top: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Logo Section */
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+/* Heading Style */
+.login-box h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Input Field Styles */
+.textbox {
+    margin: 20px 0;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Focus and Hover Effects on Inputs */
+.textbox input:focus {
+    outline: none;
+    border-color: #1e90ff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.textbox input:hover {
+    border-color: #1e90ff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Submit Button Hover Effects */
+input[type="submit"]:hover {
+    background-color: #4682b4;
+    transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+    background-color: #1c7cc7;
+    transform: translateY(1px);
+}
+
+/* Footer Links */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px;
+    }
+    .login-box h2 {
+        font-size: 28px;
+    }
+    .textbox input {
+        font-size: 14px;
+    }
+    input[type="submit"] {
+        font-size: 16px;
+    }
+    .logo {
+        width: 60px;
+    }
+}
+.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5vw;
+      max-width: 1600px;
+      margin: 0 auto;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 11, 12, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #f8f9fa, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+    }
+    .nav-links li a {
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      color: var(--platinum-soft);
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: var(--gilded);
+    }
+    /* mobile navigation */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 200;
+    }
+    .hamburger span {
+      width: 32px;
+      height: 2px;
+      background: var(--gilded);
+      transition: 0.3s;
+    }
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 400px;
+      height: 100vh;
+      background: rgba(10,11,12,0.98);
+      backdrop-filter: blur(20px);
+      padding: 6rem 2.5rem;
+      z-index: 199;
+      transition: right 0.6s var(--ease-expo);
+      border-left: 1px solid rgba(212,175,55,0.3);
+    }
+    .mobile-nav.active { right: 0; }
+    .overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 198;
+    }
+    .overlay.active { display: block; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="logo">HYPER</div>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#inventory">Inventory</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#testimonials">Patrons</a></li>
+            <li><a href="#appointment">Appointment</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="">Sign Up</a></li>
+            <li><a href="#news">Login</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+          <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </div>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 2rem;"><a href="#home" style="color: white; font-size: 1.6rem;">Home</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#inventory" style="color: white; font-size: 1.6rem;">Inventory</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#showcase" style="color: white; font-size: 1.6rem;">Showcase</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#testimonials" style="color: white; font-size: 1.6rem;">Patrons</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#appointment" style="color: white; font-size: 1.6rem;">Appointment</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#news" style="color: white; font-size: 1.6rem;">News</a></li>
+            <li style="margin-bottom: 2rem;"><a href="#about" style="color: white; font-size: 1.6rem;">About</a></li>
+          </ul>
+        </div>
+        <div class="overlay" id="overlay"></div>
+      </header>
+    
+
+    <div class="background">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="logo-container">
+                    <img src="logo.png" alt="Logo" class="logo">
+                </div>
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="textbox">
+                        <input type="text" placeholder="Username" name="username" required>
+                    </div>
+                    <div class="textbox">
+                        <input type="password" placeholder="Password" name="password" required>
+                    </div>
+                    <input type="submit" value="Login">
+                    <div class="footer">
+                        <a href="#">Forgot Password?</a>
+                        <p>Don't have an account? <a href="#">Sign Up</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
